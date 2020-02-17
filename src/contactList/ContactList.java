@@ -13,6 +13,8 @@ import contactADT.ContactADT;
 public class ContactList<Contact> implements ContactADT<Contact> {
 
     private class Node<Contact> {
+        Contact data;
+        Node<Contact> next;
 
     }
 
