@@ -21,7 +21,13 @@ public class ContactList<Contact> implements ContactADT<Contact> {
             this.next = next;
         }
 
+        private Contact getData() {
+            return data;
+        }
 
+        private Node<Contact> getNext() {
+            return next;
+        }
     }
 
     @Override
