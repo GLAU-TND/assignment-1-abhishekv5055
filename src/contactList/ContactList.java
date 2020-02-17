@@ -32,6 +32,14 @@ public class ContactList<Contact> implements ContactADT<Contact> {
         }
     }
 
+    private Node<Contact> getNode(int index) {
+        Node<Contact> response = head;
+        for (int i = 0; i < index && response != null; i++) {
+            response = response.getNext();
+        }
+        return response;
+    }
+
     @Override
     public boolean add(Contact data) {
         return false;
