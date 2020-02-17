@@ -69,8 +69,13 @@ public class ContactList<Contact> implements ContactADT<Contact> {
     }
 
     @Override
-    public Contact view() {
-        return null;
+    public void view() {
+        System.out.println("[");
+        for (int i = 0; i < size; i++) {
+            Contact data = this.getNode(i).getData();
+            System.out.println(data + (i < size - 1 ? ", " : " "));
+        }
+        System.out.println("]");
     }
 
     @Override
