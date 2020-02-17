@@ -16,6 +16,12 @@ public class ContactList<Contact> implements ContactADT<Contact> {
         Contact data;
         Node<Contact> next;
 
+        private Node(Contact data, Node<Contact> next) {
+            this.data = data;
+            this.next = next;
+        }
+
+
     }
 
     @Override
