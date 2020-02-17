@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class Contact {
     String firstName;
     String lastName;
-    String email = null;
+    String email;
     ArrayList<Integer> phoneNumber;
 
     @Override
