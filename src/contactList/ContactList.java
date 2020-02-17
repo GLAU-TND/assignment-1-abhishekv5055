@@ -40,6 +40,12 @@ public class ContactList<Contact> implements ContactADT<Contact> {
         return response;
     }
 
+    private boolean addFirst(Contact data) {
+        Node<Contact> node = new Node<>(data, null);
+        size++;
+        return true;
+    }
+
     @Override
     public boolean add(Contact data) {
         return false;
