@@ -18,14 +18,14 @@ public class Contact {
 
     @Override
     public String toString() {
-        return ("---Here are all your contacts---" +
-                "-------- * -------- * -------- * --------" +
-                "First Name: " + firstName +
-                "Last Name: " + lastName +
-                "Contact Number(s): " + phoneNumber +
-                "Email address: " + email +
-                "-------- * -------- * -------- * -------- " +
-                "-------- * -------- * -------- * --------");
+        return ("---Here are all your contacts---\n" +
+                "-------- * -------- * -------- * --------\n" +
+                "\nFirst Name: " + firstName +
+                "\nLast Name: " + lastName +
+                "\nContact Number(s): " + phoneNumber +
+                "\nEmail address: " + email +
+                "\n-------- * -------- * -------- * -------- " +
+                "\n-------- * -------- * -------- * --------");
     }
 
     public Contact(String firstName, String lastName, String email, ArrayList<Integer> phoneNumber) {
