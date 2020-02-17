@@ -11,6 +11,8 @@ package contactList;
 import contactADT.ContactADT;
 
 public class ContactList<Contact> implements ContactADT<Contact> {
+    private Node<Contact> head = null;
+    private int size = 0;
 
     private class Node<Contact> {
         Contact data;
