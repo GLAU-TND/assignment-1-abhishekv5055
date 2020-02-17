@@ -11,7 +11,7 @@ package contactADT;
 public interface ContactADT<Contact> {
     boolean add(Contact data);
 
-    Contact view();
+    void view();
 
     Contact search(Contact data);
 
