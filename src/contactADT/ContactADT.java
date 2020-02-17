@@ -13,4 +13,7 @@ public interface ContactADT<Contact> {
 
     Contact view();
 
+    Contact search(Contact data);
+
+
 }
