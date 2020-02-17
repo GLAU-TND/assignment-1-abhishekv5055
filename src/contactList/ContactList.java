@@ -46,6 +46,12 @@ public class ContactList<Contact> implements ContactADT<Contact> {
         return true;
     }
 
+    private boolean addAfter(Contact data, Node<Contact> node) {
+        Node<Contact> newNode = new Node<>(data, node.getNext());
+        size++;
+        return true;
+    }
+
     @Override
     public boolean add(Contact data) {
         return false;
