@@ -28,5 +28,12 @@ public class Contact {
                 "-------- * -------- * -------- * --------");
     }
 
+    public Contact(String firstName, String lastName, String email, ArrayList phoneNumber) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
+    }
+
 
 }
