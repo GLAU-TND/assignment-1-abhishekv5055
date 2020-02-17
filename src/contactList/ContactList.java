@@ -11,6 +11,11 @@ package contactList;
 import contactADT.ContactADT;
 
 public class ContactList<Contact> implements ContactADT<Contact> {
+
+    private class Node<Contact> {
+
+    }
+
     @Override
     public boolean add(Contact data) {
         return false;
