@@ -15,5 +15,6 @@ public interface ContactADT<Contact> {
 
     Contact search(Contact data);
 
+    boolean delete();
 
 }
