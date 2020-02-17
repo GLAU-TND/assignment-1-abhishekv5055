@@ -16,5 +16,17 @@ public class Contact {
     String email = null;
     ArrayList<Integer> phoneNumber;
 
+    @Override
+    public String toString() {
+        return ("---Here are all your contacts---" +
+                "-------- * -------- * -------- * --------" +
+                "First Name: " + firstName +
+                "Last Name: " + lastName +
+                "Contact Number(s): " + phoneNumber +
+                "Email address: " + email +
+                "-------- * -------- * -------- * -------- " +
+                "-------- * -------- * -------- * --------");
+    }
+
 
 }
