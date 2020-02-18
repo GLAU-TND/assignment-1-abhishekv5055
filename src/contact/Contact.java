@@ -16,6 +16,9 @@ public class Contact {
     String email;
     ArrayList<Integer> phoneNumber;
 
+    public Contact() {
+    }
+
     @Override
     public String toString() {
         return ("---Here are all your contacts---\n" +
