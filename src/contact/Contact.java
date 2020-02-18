@@ -14,28 +14,28 @@ public class Contact {
     String firstName;
     String lastName;
     String email;
-    ArrayList<Integer> phoneNumber;
+    ArrayList<String> phoneNumber;
 
     public Contact() {
+    }
+
+    public Contact(String firstName, String lastName, String email, ArrayList<String> phoneNumber) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
     }
 
     @Override
     public String toString() {
         return ("---Here are all your contacts---\n" +
                 "-------- * -------- * -------- * --------\n" +
-                "\nFirst Name: " + firstName +
+                "First Name: " + firstName +
                 "\nLast Name: " + lastName +
                 "\nContact Number(s): " + phoneNumber +
                 "\nEmail address: " + email +
                 "\n-------- * -------- * -------- * -------- " +
                 "\n-------- * -------- * -------- * --------");
-    }
-
-    public Contact(String firstName, String lastName, String email, ArrayList<Integer> phoneNumber) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
-        this.phoneNumber = phoneNumber;
     }
 
     public String getFirstName() {
@@ -62,11 +62,11 @@ public class Contact {
         this.email = email;
     }
 
-    public ArrayList<Integer> getPhoneNumber() {
+    public ArrayList<String> getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(ArrayList<Integer> phoneNumber) {
+    public void setPhoneNumber(ArrayList<String> phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 }
