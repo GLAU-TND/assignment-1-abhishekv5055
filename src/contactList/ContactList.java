@@ -41,13 +41,13 @@ public class ContactList<Contact> implements ContactADT<Contact> {
     }
 
     private boolean addFirst(Contact data) {
-        Node<Contact> node = new Node<>(data, null);
+        head = new Node<>(data, null);
         size++;
         return true;
     }
 
     private boolean addAfter(Contact data, Node<Contact> node) {
-        Node<Contact> newNode = new Node<>(data, node.getNext());
+        node.next = new Node<>(data, node.next);
         size++;
         return true;
     }
@@ -58,7 +58,7 @@ public class ContactList<Contact> implements ContactADT<Contact> {
         } else if (index == 0) {
             return addFirst(data);
         } else {
-            Node<Contact> temp = getNode(index);
+            Node<Contact> temp = getNode(index - 1);
             return addAfter(data, temp);
         }
     }
@@ -70,18 +70,30 @@ public class ContactList<Contact> implements ContactADT<Contact> {
 
     @Override
     public void view() {
-        System.out.println("[");
         for (int i = 0; i < size; i++) {
             Contact data = this.getNode(i).getData();
             System.out.println(data + (i < size - 1 ? ", " : " "));
         }
-        System.out.println("]");
     }
 
     @Override
     public Contact search(Contact data) {
         return null;
     }
+
+    private Contact deleteFirst() {
+        Contact response = null;
+        Node<Contact> temp = head;
+        if (head != null) {
+            head = head.getNext();
+        }
+        if (response != null) {
+            size--;
+            response = temp.getData();
+        }
+        return response;
+    }
+
 
     @Override
     public boolean delete() {
