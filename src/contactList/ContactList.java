@@ -12,7 +12,7 @@ import contactADT.ContactADT;
 
 public class ContactList<Contact> implements ContactADT<Contact> {
     private Node<Contact> head = null;
-    private int size = 0;
+    public int size = 0;
 
     private class Node<Contact> {
         Contact data;
@@ -32,7 +32,7 @@ public class ContactList<Contact> implements ContactADT<Contact> {
         }
     }
 
-    private Node<Contact> getNode(int index) {
+    public Node<Contact> getNode(int index) {
         Node<Contact> response = head;
         for (int i = 0; i < index && response != null; i++) {
             response = response.getNext();
@@ -70,9 +70,14 @@ public class ContactList<Contact> implements ContactADT<Contact> {
 
     @Override
     public void view() {
-        for (int i = 0; i < size; i++) {
-            Contact data = this.getNode(i).getData();
-            System.out.println(data + (i < size - 1 ? ", " : " "));
+        if (size == 0) {
+            Contact data = this.getNode(0).getData();
+            System.out.println(data);
+        } else {
+            for (int i = 0; i < size; i++) {
+                Contact data = this.getNode(i - 1).getData();
+                System.out.println(data);
+            }
         }
     }
 
@@ -94,9 +99,22 @@ public class ContactList<Contact> implements ContactADT<Contact> {
         return response;
     }
 
+    private Contact deleteAfter(Node<Contact> node) {
+        Contact response = null;
+        Node<Contact> temp = node.getNext();
+        if (temp != null) {
+            node.next = temp.getNext();
+        }
+        if (response != null) {
+            size--;
+            response = temp.getData();
+        }
+        return response;
+    }
+
 
     @Override
-    public boolean delete() {
-        return false;
+    public Contact delete() {
+        return null;
     }
 }
