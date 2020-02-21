@@ -128,6 +128,6 @@ public class ContactList<Contact> implements ContactADT<Contact> {
 
     @Override
     public Contact delete() {
-        return null;
+        return delete(size - 1);
     }
 }
