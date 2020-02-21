@@ -70,20 +70,23 @@ public class ContactList<Contact> implements ContactADT<Contact> {
 
     @Override
     public void view() {
-        if (size == 0) {
-            Contact data = this.getNode(0).getData();
-            System.out.println(data);
-        } else {
             for (int i = 0; i < size; i++) {
                 Contact data = this.getNode(i - 1).getData();
                 System.out.println(data);
             }
-        }
     }
 
     @Override
     public Contact search(Contact data) {
-        return null;
+        Contact response = null;
+        for (int i = 0; i < size; i++) {
+            Contact item = this.getNode(i).getData();
+            if (item.equals(data)) {
+                response = item;
+                break;
+            }
+        }
+        return response;
     }
 
     private Contact deleteFirst() {
