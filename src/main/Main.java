@@ -43,6 +43,19 @@ public class Main {
                         lastName = scanner.next();
                         System.out.println("Phone Number: ");
                         String mobileNumber = scanner.next();
+                        phoneNumber.add(mobileNumber);
+                        System.out.println("Would you like to add another contact number? (y/n): ");
+                        option = scanner.next().charAt(0);
+                        if (option == 'y' || option == 'Y') {
+                            System.out.println("Phone Number: ");
+                            mobileNumber = scanner.next();
+                            phoneNumber.add(mobileNumber);
+                        } else {
+                            break;
+                        }
+                        System.out.println("Email: ");
+                        email = scanner.next();
+
 
                 }
             }
