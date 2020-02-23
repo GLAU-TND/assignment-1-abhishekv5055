@@ -22,6 +22,7 @@ public class Main {
         String email;
         ArrayList<String> phoneNumber = new ArrayList<>();
         ContactList<Person> contactList = new ContactList<>();
+        ArrayList<String> names = new ArrayList<>();
 
     }
 
