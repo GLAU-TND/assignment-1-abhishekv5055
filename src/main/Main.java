@@ -39,7 +39,8 @@ public class Main {
                                 "Please enter the name of the Person\n");
                         System.out.print("First Name: ");
                         firstName = scanner.next();
-
+                        System.out.println("Last Name: ");
+                        lastName = scanner.next();
 
                 }
             }
