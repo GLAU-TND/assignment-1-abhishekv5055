@@ -24,6 +24,9 @@ public class Main {
         ContactList<Person> contactList = new ContactList<>();
         ArrayList<String> names = new ArrayList<>();
         char option;
+        while (true) {
+
+        }
 
     }
 
