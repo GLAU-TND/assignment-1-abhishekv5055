@@ -57,6 +57,11 @@ public class Main {
                         email = scanner.next();
                         Person person = new Person(firstName, lastName, email, phoneNumber);
                         contactList.add(person);
+                        break;
+
+                    case 2:
+                        contactList.view();
+                        break;
                 }
             }
         }
