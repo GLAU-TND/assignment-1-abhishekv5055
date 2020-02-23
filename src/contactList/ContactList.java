@@ -10,88 +10,73 @@ package contactList;
 
 import contactADT.ContactADT;
 
-public class ContactList<Contact> implements ContactADT<Contact> {
-    private Node<Contact> head = null;
+public class ContactList<Person> implements ContactADT<Person> {
+    private Node<Person> head = null;
     public int size = 0;
 
-    private class Node<Contact> {
-        Contact data;
-        Node<Contact> next;
-
-        private Node(Contact data, Node<Contact> next) {
-            this.data = data;
-            this.next = next;
-        }
-
-        private Contact getData() {
-            return data;
-        }
-
-        private Node<Contact> getNext() {
-            return next;
-        }
-    }
-
-    public Node<Contact> getNode(int index) {
-        Node<Contact> response = head;
+    private Node<Person> getNode(int index) {
+        Node<Person> response = head;
         for (int i = 0; i < index && response != null; i++) {
             response = response.getNext();
         }
         return response;
     }
 
-    private boolean addFirst(Contact data) {
+    private boolean addFirst(Person data) {
         head = new Node<>(data, null);
         size++;
         return true;
     }
 
-    private boolean addAfter(Contact data, Node<Contact> node) {
+    private boolean addAfter(Person data, Node<Person> node) {
         node.next = new Node<>(data, node.next);
         size++;
         return true;
     }
 
-    private boolean add(Contact data, int index) {
+    private boolean add(Person data, int index) {
         if (index < 0 || index > size) {
             throw new IndexOutOfBoundsException(Integer.toString(index));
         } else if (index == 0) {
             return addFirst(data);
         } else {
-            Node<Contact> temp = getNode(index - 1);
+            Node<Person> temp = getNode(index - 1);
             return addAfter(data, temp);
         }
     }
 
     @Override
-    public boolean add(Contact data) {
+    public boolean add(Person data) {
         return add(data, size);
+    }
+
+    public Person view(int index) {
+        if (index > size || index < 0) {
+            throw new IndexOutOfBoundsException(Integer.toString(index));
+        } else if (index == 0) {
+            Person data = this.getNode(0).getData();
+            return data;
+        } else {
+            Person data = this.getNode(index).getData();
+            return data;
+        }
     }
 
     @Override
     public void view() {
-            for (int i = 0; i < size; i++) {
-                Contact data = this.getNode(i - 1).getData();
-                System.out.println(data);
-            }
-    }
-
-    @Override
-    public Contact search(Contact data) {
-        Contact response = null;
-        for (int i = 0; i < size; i++) {
-            Contact item = this.getNode(i).getData();
-            if (item.equals(data)) {
-                response = item;
-                break;
-            }
+        if (size == 0) {
+            System.out.println("No Contact Found!!!");
         }
-        return response;
+        System.out.println("---Here are all your contacts---");
+        for (int i = 0; i < size; i++) {
+            Person data = this.getNode(i).getData();
+            System.out.println(data);
+        }
     }
 
-    private Contact deleteFirst() {
-        Contact response = null;
-        Node<Contact> temp = head;
+    private Person deleteFirst() {
+        Person response = null;
+        Node<Person> temp = head;
         if (head != null) {
             head = head.getNext();
         }
@@ -102,9 +87,9 @@ public class ContactList<Contact> implements ContactADT<Contact> {
         return response;
     }
 
-    private Contact deleteAfter(Node<Contact> node) {
-        Contact response = null;
-        Node<Contact> temp = node.getNext();
+    private Person deleteAfter(Node<Person> node) {
+        Person response = null;
+        Node<Person> temp = node.getNext();
         if (temp != null) {
             node.next = temp.getNext();
         }
@@ -115,22 +100,39 @@ public class ContactList<Contact> implements ContactADT<Contact> {
         return response;
     }
 
-    public Contact delete(int index) {
-        Contact response = null;
+    public Person delete(int index) {
+        Person response = null;
         if (index < 0 || index > size) {
             throw new IndexOutOfBoundsException(Integer.toString(index));
         } else if (index == 0) {
             deleteFirst();
         } else {
-            Node<Contact> temp = getNode(index - 1);
+            Node<Person> temp = getNode(index - 1);
             response = deleteAfter(temp);
         }
         return response;
     }
 
-
     @Override
-    public Contact delete() {
+    public Person delete() {
         return delete(size - 1);
+    }
+
+    private class Node<Person> {
+        private Person data;
+        private Node<Person> next;
+
+        public Node(Person data, Node<Person> next) {
+            this.data = data;
+            this.next = next;
+        }
+
+        public Person getData() {
+            return data;
+        }
+
+        private Node<Person> getNext() {
+            return next;
+        }
     }
 }
