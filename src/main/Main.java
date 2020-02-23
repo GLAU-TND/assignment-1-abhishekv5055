@@ -33,7 +33,15 @@ public class Main {
                     "Press 5 to exit program");
             int choice = scanner.nextInt();
             if (choice == 1 || choice == 2 || choice == 3 || choice == 4) {
+                switch (choice) {
+                    case 1:
+                        System.out.println("You have chosen to add a new contact: \n" +
+                                "Please enter the name of the Person\n");
+                        System.out.print("First Name: ");
+                        firstName = scanner.next();
 
+
+                }
             }
         }
 
