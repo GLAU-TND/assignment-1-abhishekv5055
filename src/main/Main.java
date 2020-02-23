@@ -101,8 +101,9 @@ public class Main {
                         names.remove(num - 1);
                         break;
                 }
+            } else if (choice == 5) {
+                break;
             }
-
         }
 
     }
