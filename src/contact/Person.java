@@ -10,16 +10,16 @@ package contact;
 
 import java.util.ArrayList;
 
-public class Contact {
+public class Person {
     String firstName;
     String lastName;
     String email;
     ArrayList<String> phoneNumber;
 
-    public Contact() {
+    public Person() {
     }
 
-    public Contact(String firstName, String lastName, String email, ArrayList<String> phoneNumber) {
+    public Person(String firstName, String lastName, String email, ArrayList<String> phoneNumber) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
@@ -28,14 +28,12 @@ public class Contact {
 
     @Override
     public String toString() {
-        return ("---Here are all your contacts---\n" +
-                "-------- * -------- * -------- * --------\n" +
+        return ("-------- * -------- * -------- * --------\n" +
                 "First Name: " + firstName +
                 "\nLast Name: " + lastName +
-                "\nContact Number(s): " + phoneNumber +
+                (phoneNumber.size() == 1 ? "\nContact Number: " + phoneNumber : "\nContact Number(s): " + phoneNumber) +
                 "\nEmail address: " + email +
-                "\n-------- * -------- * -------- * -------- " +
-                "\n-------- * -------- * -------- * --------");
+                "\n-------- * -------- * -------- * -------- ");
     }
 
     public String getFirstName() {
