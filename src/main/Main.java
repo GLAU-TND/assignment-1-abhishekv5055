@@ -103,6 +103,8 @@ public class Main {
                 }
             } else if (choice == 5) {
                 break;
+            } else {
+                System.out.println("Please enter the valid input.");
             }
         }
 
