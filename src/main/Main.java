@@ -41,6 +41,7 @@ public class Main {
                         firstName = scanner.next();
                         System.out.println("Last Name: ");
                         lastName = scanner.next();
+                        names.add(firstName + " " + lastName);
                         System.out.println("Phone Number: ");
                         String mobileNumber = scanner.next();
                         phoneNumber.add(mobileNumber);
@@ -61,6 +62,23 @@ public class Main {
 
                     case 2:
                         contactList.view();
+                        break;
+
+                    case 3:
+                        System.out.println("You could search for a contact from their first names:");
+                        firstName = scanner.next();
+                        int count = 0;
+                        for (int i = 0; i < names.size(); i++) {
+                            if (names.get(i).contains(firstName)) {
+                                count++;
+                            }
+                        }
+                        System.out.println(count + " match Found!");
+                        for (int i = 0; i < names.size(); i++) {
+                            if (names.get(i).contains(firstName)) {
+                                System.out.println(contactList.view(i));
+                            }
+                        }
                         break;
                 }
             }
