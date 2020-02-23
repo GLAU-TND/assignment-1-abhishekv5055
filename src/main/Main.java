@@ -20,7 +20,6 @@ public class Main {
         String firstName;
         String lastName;
         String email;
-        ArrayList<String> phoneNumber = new ArrayList<>();
         ContactList<Person> contactList = new ContactList<>();
         ArrayList<String> names = new ArrayList<>();
         char option;
@@ -39,33 +38,43 @@ public class Main {
                                 "Please enter the name of the Person\n");
                         System.out.print("First Name: ");
                         firstName = scanner.next();
-                        System.out.println("Last Name: ");
+                        System.out.print("Last Name: ");
                         lastName = scanner.next();
                         names.add(firstName + " " + lastName);
-                        System.out.println("Phone Number: ");
+                        System.out.print("Phone Number: ");
+                        ArrayList<String> phoneNumber = new ArrayList<>();
                         String mobileNumber = scanner.next();
                         phoneNumber.add(mobileNumber);
-                        System.out.println("Would you like to add another contact number? (y/n): ");
+                        System.out.print("Would you like to add another contact number? (y/n): ");
                         option = scanner.next().charAt(0);
-                        if (option == 'y' || option == 'Y') {
-                            System.out.println("Phone Number: ");
-                            mobileNumber = scanner.next();
-                            phoneNumber.add(mobileNumber);
-                        } else {
-                            break;
+                        while (true) {
+                            if (option == 'y' || option == 'Y') {
+                                System.out.println("Phone Number: ");
+                                mobileNumber = scanner.next();
+                                phoneNumber.add(mobileNumber);
+                            } else if (option == 'n' || option == 'N') {
+                                break;
+                            } else {
+                                System.out.println("Please enter valid input.");
+                            }
                         }
-                        System.out.println("Email: ");
+                        System.out.print("Email: ");
                         email = scanner.next();
                         Person person = new Person(firstName, lastName, email, phoneNumber);
                         contactList.add(person);
                         break;
 
                     case 2:
-                        contactList.view();
-                        break;
+                        if (contactList.size == 0) {
+                            System.out.println("NO RESULT FOUND!");
+                            break;
+                        } else {
+                            contactList.view();
+                            break;
+                        }
 
                     case 3:
-                        System.out.println("You could search for a contact from their first names:");
+                        System.out.print("You could search for a contact from their first names: ");
                         firstName = scanner.next();
                         int count = 0;
                         for (int i = 0; i < names.size(); i++) {
@@ -80,8 +89,20 @@ public class Main {
                             }
                         }
                         break;
+                    case 4:
+                        System.out.println("Here are all your contacts: ");
+                        for (int i = 0; i < names.size(); i++) {
+                            System.out.println(i + 1 + ". " + names.get(i));
+                        }
+                        int num = scanner.nextInt();
+                        contactList.delete(num - 1);
+                        System.out.println(contactList.size);
+                        System.out.println(names.get(num - 1) + "'s contact deleted from list!");
+                        names.remove(num - 1);
+                        break;
                 }
             }
+
         }
 
     }
