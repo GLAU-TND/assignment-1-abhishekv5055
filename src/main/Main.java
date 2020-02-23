@@ -8,6 +8,7 @@
 
 package main;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
@@ -16,6 +17,8 @@ public class Main {
         String firstName;
         String lastName;
         String email;
+        ArrayList<String> phoneNumber = new ArrayList<>();
+
     }
 
 }
