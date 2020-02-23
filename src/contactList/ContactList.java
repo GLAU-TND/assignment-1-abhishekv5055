@@ -64,12 +64,9 @@ public class ContactList<Person> implements ContactADT<Person> {
 
     @Override
     public void view() {
-        if (size == 0) {
-            System.out.println("No Contact Found!!!");
-        }
         System.out.println("---Here are all your contacts---");
-        for (int i = 0; i < size; i++) {
-            Person data = this.getNode(i).getData();
+        for (int i = 1; i <= size; i++) {
+            Person data = this.getNode(i - 1).getData();
             System.out.println(data);
         }
     }
@@ -80,7 +77,7 @@ public class ContactList<Person> implements ContactADT<Person> {
         if (head != null) {
             head = head.getNext();
         }
-        if (response != null) {
+        if (temp != null) {
             size--;
             response = temp.getData();
         }
@@ -92,8 +89,6 @@ public class ContactList<Person> implements ContactADT<Person> {
         Node<Person> temp = node.getNext();
         if (temp != null) {
             node.next = temp.getNext();
-        }
-        if (response != null) {
             size--;
             response = temp.getData();
         }
