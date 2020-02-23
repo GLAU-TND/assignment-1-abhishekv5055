@@ -55,7 +55,7 @@ public class Main {
                         }
                         System.out.println("Email: ");
                         email = scanner.next();
-
+                        Person person = new Person(firstName, lastName, email, phoneNumber);
 
                 }
             }
