@@ -8,13 +8,11 @@
 
 package contactADT;
 
-public interface ContactADT<Contact> {
-    boolean add(Contact data);
+public interface ContactADT<Person> {
+    boolean add(Person data);
 
     void view();
 
-    Contact search(Contact data);
-
-    boolean delete();
+    Person delete();
 
 }
