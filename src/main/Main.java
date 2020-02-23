@@ -49,13 +49,13 @@ public class Main {
                         option = scanner.next().charAt(0);
                         while (true) {
                             if (option == 'y' || option == 'Y') {
-                                System.out.println("Phone Number: ");
+                                System.out.print("Phone Number: ");
                                 mobileNumber = scanner.next();
                                 phoneNumber.add(mobileNumber);
+                                System.out.print("Would you like to add another contact number? (y/n): ");
+                                option = scanner.next().charAt(0);
                             } else if (option == 'n' || option == 'N') {
                                 break;
-                            } else {
-                                System.out.println("Please enter valid input.");
                             }
                         }
                         System.out.print("Email: ");
@@ -103,11 +103,8 @@ public class Main {
                 }
             } else if (choice == 5) {
                 break;
-            } else {
-                System.out.println("Please enter the valid input.");
             }
         }
 
     }
-
 }
