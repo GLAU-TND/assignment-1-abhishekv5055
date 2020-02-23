@@ -15,6 +15,7 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         String firstName;
         String lastName;
+        String email;
     }
 
 }
