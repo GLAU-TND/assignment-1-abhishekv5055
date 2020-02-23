@@ -8,6 +8,9 @@
 
 package main;
 
+import contact.Person;
+import contactList.ContactList;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -18,6 +21,7 @@ public class Main {
         String lastName;
         String email;
         ArrayList<String> phoneNumber = new ArrayList<>();
+        ContactList<Person> contactList = new ContactList<>();
 
     }
 
