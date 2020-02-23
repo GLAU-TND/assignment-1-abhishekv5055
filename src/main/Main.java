@@ -41,6 +41,8 @@ public class Main {
                         firstName = scanner.next();
                         System.out.println("Last Name: ");
                         lastName = scanner.next();
+                        System.out.println("Phone Number: ");
+                        String mobileNumber = scanner.next();
 
                 }
             }
